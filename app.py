@@ -36,6 +36,7 @@ while respuesta != "salir":
             print()
         elif int(opt) == 6:
             respuesta = "salir"
+            
         else: print("Ingrese una opción válida")
     else: 
         print("Ingrese una opción numérica")
