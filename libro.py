@@ -15,6 +15,9 @@ libro3 = {'cod': 'adOd09UE',
           "titulo": "El código Da Vinci",
           "autor": "Dan Brown"}
 
+#Se crea una lista con cada libro para poder iterar
+libros = [libro1,libro2,libro3]
+
 def nuevo_libro():
     #completar
     return None

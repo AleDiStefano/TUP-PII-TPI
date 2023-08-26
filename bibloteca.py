@@ -9,9 +9,35 @@ libros.append(l.libro2)
 libros.append(l.libro3)
 
 def ejemplares_prestados():
-    # completar
-    return None
-
+    
+    #Creamos una bandera para validar que el libro exista en la lista
+    libro_registrado = False
+    
+    op = input("Ingrese el código del libro: ")
+    for libro in l.libros:
+        if libro['cod'] == op:
+            libro_registrado = True
+            
+            #Creamos una variable para no tener que hacer la cuenta en cada print de pantalla
+            cant_disp = libro['cant_ej_ad'] - libro['cant_ej_pr']
+            if cant_disp > 0:
+                print(f"Se encuentran disponible {cant_disp} unidad/es del libro {libro['titulo']} del autor {libro['autor']}")
+                while True:
+                    prestamo_sino = str(input("¿Desea confirmar el préstamo? (SI/NO): "))
+                    #Resta aplicar el .upper (Me esta dando error actualmente)
+                    if prestamo_sino == 'SI' or prestamo_sino == 'NO':
+                        break
+                    else:
+                        print("Opción inválida")
+                
+                if prestamo_sino == 'SI':
+                    libro['cant_ej_pr'] += 1
+                    return print(f"Préstamo exitoso, cantidad de ejemplares prestados acutalizada a: {libro['cant_ej_pr']}")
+            else:
+                print(f"No se encuentran disponibles para prestar unidades del libro {libro['titulo']} del autor {libro['autor']}")
+            
+    if libro_registrado == False:            
+        return print("ERROR: El código ingresado no esta registrado")        
 def registrar_nuevo_libro():
     nuevo_libro = l.nuevo_libro()
     #completar
@@ -32,3 +58,4 @@ def devolver_ejemplar_libro():
 def nuevo_libro():
     #completar
     return None
+

@@ -1,7 +1,12 @@
-# Trabajo Práctico I - Programación II
-
+'''
+Trabajo Práctico I - Programación II 2023
+Integrantes:
+    Di Stefano Alejandro
+    Koch Gaston
+'''
 
 import os
+import bibloteca as b
 
 print("Bienvenido!")
 respuesta = ''
@@ -18,10 +23,10 @@ while respuesta != "salir":
     menu()
     opt = input("\n Ingrese la opción de menú: ")
     os.system ("cls") #Limpiar pantalla
+    
     if opt.isnumeric():
         if int(opt) == 1:
-            #completar
-            print()
+            b.ejemplares_prestados()
         elif int(opt) == 2:
             #completar
             print()
