@@ -28,8 +28,7 @@ while respuesta != "salir":
         if int(opt) == 1:
             b.ejemplares_prestados()
         elif int(opt) == 2:
-            #completar
-            print()
+            b.devolver_ejemplar_libro()
         elif int(opt) == 3:
             #completar
             print()

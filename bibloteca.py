@@ -24,7 +24,7 @@ def ejemplares_prestados():
                 print(f"Se encuentran disponible {cant_disp} unidad/es del libro {libro['titulo']} del autor {libro['autor']}")
                 while True:
                     prestamo_sino = str(input("¿Desea confirmar el préstamo? (SI/NO): "))
-                    #Resta aplicar el .upper (Me esta dando error actualmente)
+                    prestamo_sino = prestamo_sino.upper()
                     if prestamo_sino == 'SI' or prestamo_sino == 'NO':
                         break
                     else:
@@ -52,8 +52,31 @@ def prestar_ejemplar_libro():
     return None
 
 def devolver_ejemplar_libro():
-    #completar
-    return None
+    libro_registrado = False
+    
+    op = input("Ingrese el código del libro: ")
+    
+    for libro in l.libros:
+        if libro['cod'] == op:
+            libro_registrado = True
+            
+            if libro['cant_ej_pr'] > 0:
+                while True:
+                    devuelve_libro = str(input("¿Desea confirmar la devolucion? (SI/NO): "))
+                    devuelve_libro = devuelve_libro.upper()
+                    if devuelve_libro == 'SI' or devuelve_libro == 'NO':
+                        break
+                    else:
+                        print("Opción inválida")
+                        
+                if devuelve_libro == 'SI':
+                    libro['cant_ej_pr'] -= 1
+                    return print(f"Devolucion exitosa, cantidad de ejemplares prestados acutalizada a: {libro['cant_ej_pr']}")
+            else:
+                print("Error: no se encuentran libros prestados")
+                        
+    if libro_registrado == False:            
+        return print("ERROR: El código ingresado no esta registrado") 
 
 def nuevo_libro():
     #completar
