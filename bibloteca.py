@@ -1,17 +1,28 @@
 import libro as l
 
-"""
-# Crear una lista vacía para almacenar los libros
-
-libros = []
-
-# Añadir los diccionarios a la lista
-libros.append(l.libro1)
-libros.append(l.libro2)
-libros.append(l.libro3)
-"""
 def ejemplares_prestados():
+    for libro in l.libros:
+        print(f"El libro '{libro['titulo']}' posee la cantidad de: {libro['cant_ej_pr']} en préstamo") if libro['cant_ej_pr'] > 0 else print(f"El libro '{libro['titulo']}' no posee ejemplares prestados")
     
+def registrar_nuevo_libro():
+    nuevo_libro = l.nuevo_libro()
+    return None
+
+def eliminar_ejemplar_libro():
+    libro_registrado = False
+    op = input("Ingrese el código del libro: ")
+    for libro in l.libros:
+        if libro['cod'] == op:
+            libro_registrado = True
+            if libro['cant_ej_ad'] > 0:
+                libro['cant_ej_ad'] -= 1
+                return print(f"Se ha eliminado exitosamente un ejemplar del libro '{libro['titulo']}'")    
+            else:
+                return print(f"El libro '{libro['titulo']}' no posee ejemplares en circulación")   
+    if libro_registrado == False:            
+        return print("ERROR: El código ingresado no esta registrado")     
+
+def prestar_ejemplar_libro():  
     #Creamos una bandera para validar que el libro exista en la lista
     libro_registrado = False
     
@@ -27,7 +38,7 @@ def ejemplares_prestados():
                 while True:
                     prestamo_sino = str(input("¿Desea confirmar el préstamo? (SI/NO): "))
                     prestamo_sino = prestamo_sino.upper()
-                    if prestamo_sino == 'SI' or prestamo_sino == 'NO':
+                    if prestamo_sino in ('SI','NO'):
                         break
                     else:
                         print("Opción inválida")
@@ -39,19 +50,7 @@ def ejemplares_prestados():
                 print(f"No se encuentran disponibles para prestar unidades del libro {libro['titulo']} del autor {libro['autor']}")
             
     if libro_registrado == False:            
-        return print("ERROR: El código ingresado no esta registrado")        
-def registrar_nuevo_libro():
-    nuevo_libro = l.nuevo_libro()
-    #completar
-    return None
-
-def eliminar_ejemplar_libro():
-    #completar
-    return None
-
-def prestar_ejemplar_libro():
-    #completar
-    return None
+        return print("ERROR: El código ingresado no esta registrado")  
 
 def devolver_ejemplar_libro():
     libro_registrado = False
@@ -66,7 +65,7 @@ def devolver_ejemplar_libro():
                 while True:
                     devuelve_libro = str(input("¿Desea confirmar la devolucion? (SI/NO): "))
                     devuelve_libro = devuelve_libro.upper()
-                    if devuelve_libro == 'SI' or devuelve_libro == 'NO':
+                    if devuelve_libro in ('SI','NO'):
                         break
                     else:
                         print("Opción inválida")
@@ -81,6 +80,4 @@ def devolver_ejemplar_libro():
         return print("ERROR: El código ingresado no esta registrado") 
 
 def nuevo_libro():
-    #completar
     return None
-

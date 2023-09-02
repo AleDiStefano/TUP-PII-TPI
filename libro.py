@@ -33,10 +33,8 @@ def nuevo_libro():
         "autor": autor
     }
     libros.append(nuevo_libro)
-    print(f"El libro {titulo} del autor {autor} se agregado con exito, con la cantidad de ejemplares: {cant_ej_ad}. Codigo: {cod}")
-    return None
+    print(f"El libro {titulo} del autor {autor} se agregado con exito, con la cantidad de ejemplares: {cant_ej_ad} y con el código: {cod}")
 
 def generar_codigo():
-    #completar
     cod = c.generar()
     return cod

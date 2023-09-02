@@ -26,22 +26,17 @@ while respuesta != "salir":
     
     if opt.isnumeric():
         if int(opt) == 1:
-            b.ejemplares_prestados()
+            b.prestar_ejemplar_libro()
         elif int(opt) == 2:
             b.devolver_ejemplar_libro()
         elif int(opt) == 3:
-            #completar
             b.registrar_nuevo_libro()
-            print()
         elif int(opt) == 4:
-            #completar
-            print()
+            b.eliminar_ejemplar_libro()
         elif int(opt) == 5:
-            #completar
-            print()
+            b.ejemplares_prestados()
         elif int(opt) == 6:
             respuesta = "salir"
-            
         else: print("Ingrese una opción válida")
     else: 
         print("Ingrese una opción numérica")
