@@ -31,6 +31,7 @@ while respuesta != "salir":
             b.devolver_ejemplar_libro()
         elif int(opt) == 3:
             #completar
+            b.registrar_nuevo_libro()
             print()
         elif int(opt) == 4:
             #completar

@@ -1,13 +1,15 @@
 import libro as l
 
+"""
 # Crear una lista vacía para almacenar los libros
+
 libros = []
 
 # Añadir los diccionarios a la lista
 libros.append(l.libro1)
 libros.append(l.libro2)
 libros.append(l.libro3)
-
+"""
 def ejemplares_prestados():
     
     #Creamos una bandera para validar que el libro exista en la lista

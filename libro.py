@@ -1,3 +1,5 @@
+import cod_generator as c
+
 # Crear un diccionario para cada libro
 libro1 = {'cod': 'CRBJsAkS',
           'cant_ej_ad': 3,
@@ -19,9 +21,22 @@ libro3 = {'cod': 'adOd09UE',
 libros = [libro1,libro2,libro3]
 
 def nuevo_libro():
-    #completar
+    titulo = input("Ingrese el titulo del nuevo libro: ")
+    autor = input("Ingrese el autor del nuevo libro: ")
+    cant_ej_ad = int(input("Ingrese la cantidad de ejemplares adquiridas: "))
+    cod = generar_codigo()
+    nuevo_libro = {
+        'cod': cod,
+        'cant_ej_ad': cant_ej_ad,
+        'cant_ej_pr': 0,
+        "titulo": titulo,
+        "autor": autor
+    }
+    libros.append(nuevo_libro)
+    print(f"El libro {titulo} del autor {autor} se agregado con exito, con la cantidad de ejemplares: {cant_ej_ad}. Codigo: {cod}")
     return None
 
 def generar_codigo():
     #completar
-    return None
+    cod = c.generar()
+    return cod
